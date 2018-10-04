@@ -26,3 +26,5 @@ test:
 production:
   <<: *default
 database: ninemoon_db1_prod
+
+secret_key_base: b18b8a359451a73f35d40a46c1eb8da9a743906a7a2e3e42a19c7b06a1da3621c6dac04ac8b96f39efeb26e0282db167e3497014eb380675508ad3f8a73ebc52
