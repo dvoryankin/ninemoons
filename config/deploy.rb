@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 # Change these
 server '188.166.1.16', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'gitolite@git.castor-digital.com:22333/ninemoons.git'
+set :repo_url,        'ssh://gitolite@git.castor-digital.com:22333/ninemoons.git'
 set :application,     'ninemoons'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
