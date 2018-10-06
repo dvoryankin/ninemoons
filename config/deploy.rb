@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 # Change these
-server '188.166.1.16', port: 22333, roles: [:web, :app, :db], primary: true
+server '188.166.1.16', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'gitolite@git.castor-digital.com:22333/ninemoons.git'
 set :application,     'ninemoons'
