@@ -3939,8 +3939,8 @@ tbody.collapse.in {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0");
-  src: url("/fonts/font-awesome/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("/fonts/font-awesome/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("/fonts/font-awesome/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("/fonts/font-awesome/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("/fonts/font-awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: font- image-url("fontawesome-webfont.eot?v=4.7.0");
+  src: font- image-url("fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), font- image-url("fontawesome-webfont.woff2?v=4.7.0") format("woff2"), font- image-url("fontawesome-webfont.woff?v=4.7.0") format("woff"), font- image-url("fontawesome-webfont.ttf?v=4.7.0") format("truetype"), font- image-url("fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -7495,8 +7495,8 @@ strong {
 
 @font-face {
   font-family: fontello;
-  src: url("/fonts/custom-font/fontello.eot?");
-  src: url("/fonts/custom-font/fontello.eot?#iefix") format("embedded-opentype"), url("/fonts/custom-font/fontello.woff?") format("woff"), url("/fonts/custom-font/fontello.woff2?") format("woff2"), url("/fonts/custom-font/fontello.ttf?") format("truetype"), url("/fonts/custom-font/fontello.svg?#fontello") format("svg");
+  src: font- image-url("fontello.eot?");
+  src: font- image-url("fontello.eot?#iefix") format("embedded-opentype"), font- image-url("fontello.woff?") format("woff"), font- image-url("fontello.woff2?") format("woff2"), font- image-url("fontello.ttf?") format("truetype"), font- image-url("fontello.svg?#fontello") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -8304,7 +8304,7 @@ fieldset[disabled] .btn {
         background-image: linear-gradient(75deg, #4f4bb9, #3f9ce4);
 
         .moon {
-          background: url("moon.png") center center no-repeat;
+          background:  image-url("moon.png") center center no-repeat;
           margin: 0 auto 10px;
           width: 40px;
           height: 43px;
@@ -8459,7 +8459,7 @@ fieldset[disabled] .btn {
         padding-bottom: 0;
 
         .moon {
-          background: url("moon2.png") center center no-repeat;
+          background:  image-url("moon2.png") center center no-repeat;
           margin: 0 auto;
           width: 74px;
           height: 74px;
@@ -8583,7 +8583,7 @@ fieldset[disabled] .btn {
 
           .qr {
             margin: 15px auto 0;
-            background: url("qr.jpg") center center no-repeat;
+            background:  image-url("qr.jpg") center center no-repeat;
             width: 242px;
             height: 242px;
           }
@@ -8723,7 +8723,7 @@ fieldset[disabled] .btn {
 
 @media (max-width: 480px) {
   .modal .modal-dialog.modal-balance .modal-content .modal-body .tab-content .tab-pane .qr {
-    background: url("qr.jpg") center center no-repeat;
+    background:  image-url("qr.jpg") center center no-repeat;
     background-size: cover;
     width: 220px;
     height: 220px;
@@ -8774,7 +8774,7 @@ fieldset[disabled] .btn {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    background: url("logo-clean.png") 0 0 no-repeat;
+    background:  image-url("logo-clean.png") 0 0 no-repeat;
     background-size: cover;
     width: 74px;
     height: 74px;
@@ -8785,7 +8785,7 @@ fieldset[disabled] .btn {
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("logo-full.png") 0 0 no-repeat;
+      background:  image-url("logo-full.png") 0 0 no-repeat;
       background-size: cover;
       width: 74px;
       height: 74px;
@@ -8799,7 +8799,7 @@ fieldset[disabled] .btn {
   padding-bottom: 200px;
 
   #back {
-    background: url("back.jpg") center center no-repeat;
+    background:  image-url("back.jpg") center center no-repeat;
     background-size: cover;
     position: absolute;
     top: 0;
@@ -9040,7 +9040,7 @@ fieldset[disabled] .btn {
       position: absolute;
       right: 20px;
       bottom: 0;
-      background: url("footer.png") center center no-repeat;
+      background:  image-url("footer.png") center center no-repeat;
       width: 65px;
       height: 46px;
     }
@@ -9070,7 +9070,7 @@ fieldset[disabled] .btn {
       position: absolute;
       top: 15px;
       left: 20px;
-      background: url("back.png") center center no-repeat;
+      background:  image-url("back.png") center center no-repeat;
       width: 125px;
       height: 33px;
 
@@ -9140,7 +9140,7 @@ fieldset[disabled] .btn {
 
     .moons {
       margin: 0 auto;
-      background: url("moons.png") center center no-repeat;
+      background:  image-url("moons.png") center center no-repeat;
       width: 561px;
       height: 47px;
     }
@@ -9233,7 +9233,7 @@ fieldset[disabled] .btn {
         height: 53px;
 
         &.moon {
-          background: url("moon.png") center center no-repeat;
+          background:  image-url("moon.png") center center no-repeat;
         }
 
         &:nth-child(2), &:nth-child(4) {
@@ -9416,7 +9416,7 @@ fieldset[disabled] .btn {
 
 @media (max-width: 767px) {
   .page .about__bottom .moons {
-    background: url("moons.png") center center no-repeat;
+    background:  image-url("moons.png") center center no-repeat;
     background-size: cover;
     width: 260px;
     height: 22px;
