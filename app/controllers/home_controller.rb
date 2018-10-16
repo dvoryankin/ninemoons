@@ -3,23 +3,30 @@ class HomeController < ApplicationController
   end
 
   def about
+    render 'about'
   end
 
-  def how_to_play
+  def howto
+    render 'about'
   end
 
   def bonuses
+    render 'about'
   end
 
-  def referral
+  def referrals
+    render 'about'
   end
 
-  def statistic
+  def stats
+    render 'about'
   end
 
   def support
+    render 'about'
   end
 
   def tos
+    render 'about'
   end
 end

@@ -1,0 +1,38 @@
+.page
+  #back
+  header
+    .logo
+      | nine
+      .moon
+        div
+      | moons
+    .add
+      | 52.40
+      i.fa.fa-btc[aria-hidden="true"]
+      a.plus[href="#"]
+        i.fa.fa-plus[aria-hidden="true"]
+  main[role="main"]
+    section.about
+      .about__content
+        .about__header
+          a.back[href="/"]
+            span
+              | Назад к игре
+          h2
+            | О нас
+        .about__top
+          p
+            | О нас
+        .about__body
+          p
+            | В далеком 2009 году БитКонг уже хранил миллионы битов как король, и поэтому некоторые верят, что он и есть тот самый Сатоши, поныне накапливающий монетки глубоко в лесу, остальные думают что это глупость. Но во что бы вы ни верили, быть Биткойновым миллионером не полностью удовлетворяет этого гигантопитека. И это его единственная слабость, а может быть даже его погибель.
+          p
+            | З.Ы. Пожалуйста, позволь ему делать это, - Он хотя бы больше не уничтожает здания.
+        .about__bottom
+          .moons
+  =render 'footer'
+=javascript_include_tag "app.min"
+script
+  | var debug = false;
+script
+  |  DesignLayout.init({ debug: debug });

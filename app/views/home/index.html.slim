@@ -6,6 +6,11 @@
       .moon
         div
       | moons
+    .account
+      a.user[href="#"]
+        | mn3kl4s
+      a.facebook[href="#"]
+        i.fa.fa-facebook[aria-hidden="true"]
   main[role="main"]
     section.game
       .game__table
@@ -159,36 +164,5 @@
       .game__btn
         a.btn[href="#" role="button"]
           | Играть демо
-  section.social
-  footer[role="contentinfo"]
-    .left
-      | © 2018 CraziBit
-    .menu[role="menu"]
-      div
-        a[href="#"]
-          | О нас
-      div
-        a[href="#"]
-          | Как играть
-      div
-        a[href="#"]
-          | Бонусы
-      div
-        a[href="#"]
-          | Рефералы
-      .visible-xs
-      div
-        a[href="#"]
-          | Статистика
-      div
-        a[href="#"]
-          | Поддержка
-      div
-        a[href="#"]
-          | Условия
-    .right
-script[src="./javascripts/app.min.js"]
-script
-  | var debug = false;
-script
-  |  DesignLayout.init({ debug: debug });
+  =render 'footer'
+=javascript_include_tag "app.min"
