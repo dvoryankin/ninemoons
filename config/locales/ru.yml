@@ -1,0 +1,15 @@
+ru:
+  home:
+    index:
+      play: 'Играть демо'
+      footer:
+        about: 'О нас'
+        howto: 'Как играть'
+        bonuses: 'Бонусы'
+        referrals: 'Рефералы'
+        stats: 'Статистика'
+        support: 'Поддержка'
+        tos: 'Условия'
+    about:
+      backtogame: 'Назад к игре'
+      about_us: 'О нас'
