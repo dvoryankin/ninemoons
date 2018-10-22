@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users , :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/stats' => 'home#stats'
   get '/support' => 'home#support'
   get '/tos' => 'home#tos'
+  # get "/users/auth/facebook" => 'home#index'
+
 end
