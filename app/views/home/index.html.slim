@@ -8,9 +8,18 @@
       | moons
     .account
       a.user[href="#"]
-        | mn3kl4s
+        - if @first_visit
+          = Faker::StarWars.character
+        - elsif current_user.nil?
+          = Faker::Pokemon.name
+        - else
+          = current_user.name
       a.facebook[href="/users/auth/facebook"]
-        i.fa.fa-facebook[aria-hidden="true"]
+        - if @first_visit || current_user.nil?
+          i.fa.fa-facebook[aria-hidden="true"]
+        - else
+          image_tag(current_user.user_pic)
+        / -binding.pry
   main[role="main"]
     section.game
       .game__table
@@ -166,3 +175,8 @@
           =t('.play')
   =render 'footer'
 =javascript_include_tag "app.min"
+script[src="./javascript/app.min.js"]
+script
+  | var debug = false;
+script
+  |  DesignLayout.init({ debug: debug });
