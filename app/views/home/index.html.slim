@@ -18,8 +18,7 @@
         - if @first_visit || current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
         - else
-          image_tag(current_user.user_pic)
-        / -binding.pry
+          =image_tag(current_user.user_pic)
   main[role="main"]
     section.game
       .game__table
@@ -174,9 +173,9 @@
         a.btn[href="#" role="button"]
           =t('.play')
   =render 'footer'
-=javascript_include_tag "app.min"
-script[src="./javascript/app.min.js"]
-script
-  | var debug = false;
-script
-  |  DesignLayout.init({ debug: debug });
+  =javascript_include_tag "app.min.js"
+  script[src="/javascripts/app.min.js"]
+  script
+    | var debug = false;
+  script
+    |  DesignLayout.init({ debug: debug });
