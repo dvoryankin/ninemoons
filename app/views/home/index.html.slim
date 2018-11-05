@@ -13,7 +13,7 @@
         - elsif current_user.nil?
           = Faker::Pokemon.name
         - else
-          = current_user.name
+          = current_user.name.split.first
       a.facebook[href="/users/auth/facebook"]
         - if @first_visit || current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
@@ -173,8 +173,8 @@
         a.btn[href="#" role="button"]
           =t('.play')
   =render 'footer'
-  script[src="./javascripts/app.min.js"]
-  script
-    | var debug = false;
-  script
-    |  DesignLayout.init({ debug: debug });
+  / =javascript_include_tag "app.min.js"
+  / script
+  /   | var debug = false;
+  / script
+  /   |  DesignLayout.init({ debug: debug });
