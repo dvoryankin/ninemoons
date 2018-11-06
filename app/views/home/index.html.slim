@@ -173,8 +173,8 @@
         a.btn[href="#" role="button"]
           =t('.play')
   =render 'footer'
-  / =javascript_include_tag "app.min.js"
-  / script
-  /   | var debug = false;
-  / script
-  /   |  DesignLayout.init({ debug: debug });
+  =javascript_include_tag "app.min.js"
+  script
+    | var debug = false;
+  script
+    |  DesignLayout.init({ debug: debug });
