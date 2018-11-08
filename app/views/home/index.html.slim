@@ -172,9 +172,9 @@
       .game__btn
         a.btn[href="#" role="button"]
           =t('.play')
+
+
   =render 'footer'
-  =javascript_include_tag "app.min.js"
-  script
-    | var debug = false;
-  script
-    |  DesignLayout.init({ debug: debug });
+  javascript:
+    var debug = false;
+    DesignLayout.init({ debug: debug });
