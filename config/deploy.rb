@@ -2,18 +2,15 @@
 lock "~> 3.11.0"
 
 # Change these
-server '188.166.1.16', port: 22, roles: [:web, :app, :db], primary: true
-
 set :repo_url,        'ssh://gitolite@git.castor-digital.com:22333/ninemoons.git'
 set :application,     'ninemoons'
 set :user,            'deploy'
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :puma_threads,    [5, 5] # railsspeed рекомендует не выебываться и ставить тут 5 в дальше играться процессами
+set :puma_workers,    3
 
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
-set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
@@ -26,21 +23,14 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
-## Defaults:
-# set :scm,           :git
-# set :branch,        :master
-# set :format,        :pretty
-# set :log_level,     :debug
-# set :keep_releases, 5
+#set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle }
 
-## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
-    on roles(:app) do
+    on roles(:web) do
       execute "mkdir #{shared_path}/tmp/sockets -p"
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
@@ -50,17 +40,6 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
-  task :check_revision do
-    on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
-        puts "Run `git push` to sync changes."
-        exit
-      end
-    end
-  end
-
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
@@ -71,15 +50,13 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:web) do
       invoke 'puma:restart'
     end
   end
 
-  before :starting,     :check_revision
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
-  # after  :finishing,    :restart
+  after :finishing,  :compile_assets
+  after :finishing, 'deploy:cleanup'
 end
 
 # ps aux | grep puma    # Get puma pid
