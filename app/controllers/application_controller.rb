@@ -9,14 +9,13 @@ class ApplicationController < ActionController::Base
 
     else
       user_id = current_user.nil? ? nil : current_user.id
-
-      Visitor.create!(ip: request.remote_ip,
-                      user_agent: request.user_agent,
-                      start_url: request.path,
-                      referrer: request.referrer,
-                      visitor_id: cookies[:visitor_id],
-                      user_id: user_id,
-                      name: Faker::StarWars.character)
+      @visitor = Visitor.create!(ip: request.remote_ip,
+                                 user_agent: request.user_agent,
+                                 start_url: request.path,
+                                 referrer: request.referrer,
+                                 visitor_id: cookies[:visitor_id],
+                                 user_id: user_id,
+                                 name: Faker::StarWars.character)
       # cookies.signed_or_encrypted.permanent[Rails.application.secrets.visitor_cookie_name] = @visitor.id
 
     end

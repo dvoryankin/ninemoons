@@ -14,7 +14,7 @@
           = Faker::Pokemon.name
         - else
           = current_user.name.split.first
-      a.facebook[href="/users/auth/facebook"]
+      a.facebook[href=user_facebook_omniauth_authorize_path]
         - if @first_visit || current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
         - else
@@ -172,9 +172,4 @@
       .game__btn
         a.btn[href="#" role="button"]
           =t('.play')
-  =render 'footer'
-  =javascript_include_tag "app.min.js"
-  script
-    | var debug = false;
-  script
-    |  DesignLayout.init({ debug: debug });
+

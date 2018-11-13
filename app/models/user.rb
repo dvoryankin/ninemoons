@@ -7,11 +7,11 @@ class User < ApplicationRecord
   has_many :authorizations
 
   def self.find_for_oauth(auth)
-    authorization = Authorization.where(provider: auth.provider, uid: auth.uid.to_s).first
+    authorization = Authorization.find_by(provider: auth.provider, uid: auth.uid.to_s)
     return authorization.user if authorization
 
     email = auth.info[:email]
-    user = User.where(email: email).first
+    user = User.find_by(email: email)
     if user
       user.create_authorization(auth)
     else
@@ -19,8 +19,14 @@ class User < ApplicationRecord
       user = User.create!(email: email, password: password, password_confirmation: password)
       user.create_authorization(auth)
     end
+    @user.name = request.env["omniauth.auth"].info&.name
+    @user.update user_pic: request.env["omniauth.auth"].info&.image
 
     user
+  end
+
+  def first_name
+    self.name.split.first
   end
 
   def create_authorization(auth)
