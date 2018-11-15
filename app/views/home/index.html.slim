@@ -8,14 +8,13 @@
       | moons
     .account
       a.user[href="#"]
-        - if @first_visit
-          = Faker::StarWars.character
-        - elsif current_user.nil?
-          = Faker::Pokemon.name
+        - if current_user
+          = current_user.first_name
         - else
-          = current_user.name.split.first
+          -binding.pry
+          = @visitor.name
       a.facebook[href=user_facebook_omniauth_authorize_path]
-        - if @first_visit || current_user.nil?
+        - if current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
         - else
           =image_tag(current_user.user_pic)
