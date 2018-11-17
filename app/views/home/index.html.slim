@@ -8,8 +8,12 @@
       | moons
     .account
       a.user[href="#"]
-        = (@visitor || current_user)&.name
-        / - binding.pry
+        - if current_user
+          = current_user.first_name
+        - else
+          / - binding.pry
+          = @visitor.name
+          / =@visitor || current_user)&.name
       a.facebook[href=user_facebook_omniauth_authorize_path]
         - if current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
