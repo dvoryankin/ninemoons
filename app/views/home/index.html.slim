@@ -11,7 +11,7 @@
         - if current_user
           = current_user&.first_name
         - else
-          = @visitor.name
+          = @visitor&.name
       a.facebook[href=user_facebook_omniauth_authorize_path]
         - if current_user.nil?
           i.fa.fa-facebook[aria-hidden="true"]
